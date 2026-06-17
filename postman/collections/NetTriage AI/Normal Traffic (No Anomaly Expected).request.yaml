@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 09:00:01 [INFO] source=web_server - GET /index.html 200 OK in 85ms\n2026-06-17 09:05:22 [INFO] source=web_server - GET /api/users 200 OK in 120ms\n2026-06-17 09:10:45 [INFO] source=web_server - POST /api/login 200 OK in 95ms\n2026-06-17 09:15:00 [INFO] source=api_gateway - GET /api/health 200 OK in 40ms"
+    }
+order: 7000

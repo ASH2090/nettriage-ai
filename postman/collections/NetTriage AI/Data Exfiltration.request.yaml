@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 03:00:01 [WARNING] source=db_server - Unusual query volume from user dbadmin\n2026-06-17 03:00:15 [ERROR] source=db_server - Large data export triggered by user dbadmin 450MB\n2026-06-17 03:00:30 [ERROR] source=db_server - Bulk SELECT on customers table by user dbadmin\n2026-06-17 03:01:00 [CRITICAL] source=db_server - External connection attempt to backup database from 203.0.113.50"
+    }
+order: 4000

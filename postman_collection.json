@@ -1,0 +1,195 @@
+{
+	"info": {
+		"name": "NetTriage AI",
+		"description": "API collection for NetTriage AI — a multi-agent log triage pipeline using LangGraph.\n\nLive endpoint: https://nettriage-ai.onrender.com\n\nIncludes test scenarios for:\n- Health check\n- Brute force attack\n- Port scanning\n- Data exfiltration\n- Privilege escalation\n- DDoS attack\n- Normal traffic (should NOT flag anomaly)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://nettriage-ai.onrender.com"
+		}
+	],
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/",
+					"host": ["{{base_url}}"],
+					"path": [""]
+				}
+			}
+		},
+		{
+			"name": "Brute Force Attack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 14:32:10 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\\n2026-06-17 14:32:15 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\\n2026-06-17 14:32:20 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\\n2026-06-17 14:32:25 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\\n2026-06-17 14:32:30 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Port Scanning",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 10:00:01 [WARNING] source=firewall - Connection attempt on port 22 from 10.0.0.55\\n2026-06-17 10:00:02 [WARNING] source=firewall - Connection attempt on port 23 from 10.0.0.55\\n2026-06-17 10:00:03 [WARNING] source=firewall - Connection attempt on port 80 from 10.0.0.55\\n2026-06-17 10:00:04 [WARNING] source=firewall - Connection attempt on port 443 from 10.0.0.55\\n2026-06-17 10:00:05 [WARNING] source=firewall - Connection attempt on port 3306 from 10.0.0.55\\n2026-06-17 10:00:06 [WARNING] source=firewall - Connection attempt on port 5432 from 10.0.0.55\\n2026-06-17 10:00:07 [WARNING] source=firewall - Connection attempt on port 8080 from 10.0.0.55\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Data Exfiltration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 03:00:01 [WARNING] source=db_server - Unusual query volume from user dbadmin\\n2026-06-17 03:00:15 [ERROR] source=db_server - Large data export triggered by user dbadmin 450MB\\n2026-06-17 03:00:30 [ERROR] source=db_server - Bulk SELECT on customers table by user dbadmin\\n2026-06-17 03:01:00 [CRITICAL] source=db_server - External connection attempt to backup database from 203.0.113.50\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Privilege Escalation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 15:00:00 [WARNING] source=auth_service - User temp_contractor attempted to access /admin/settings\\n2026-06-17 15:00:10 [ERROR] source=auth_service - User temp_contractor attempted role change to SUPERADMIN\\n2026-06-17 15:00:20 [CRITICAL] source=auth_service - Unauthorized sudo command executed by temp_contractor\\n2026-06-17 15:00:25 [CRITICAL] source=auth_service - User temp_contractor modified /etc/passwd\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "DDoS Attack",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 12:00:01 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\\n2026-06-17 12:00:02 [ERROR] source=web_server - Connection flood detected from 89.100.55.23 - 503 Service Unavailable\\n2026-06-17 12:00:03 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\\n2026-06-17 12:00:04 [ERROR] source=web_server - Connection flood detected from 172.16.0.99 - 503 Service Unavailable\\n2026-06-17 12:00:05 [ERROR] source=web_server - Connection flood detected from 89.100.55.23 - 503 Service Unavailable\\n2026-06-17 12:00:06 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\\n2026-06-17 12:00:07 [ERROR] source=web_server - Connection flood detected from 172.16.0.99 - 503 Service Unavailable\\n2026-06-17 12:00:10 [CRITICAL] source=load_balancer - Server pool exhausted, all backends unresponsive\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Normal Traffic (No Anomaly Expected)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"2026-06-17 09:00:01 [INFO] source=web_server - GET /index.html 200 OK in 85ms\\n2026-06-17 09:05:22 [INFO] source=web_server - GET /api/users 200 OK in 120ms\\n2026-06-17 09:10:45 [INFO] source=web_server - POST /api/login 200 OK in 95ms\\n2026-06-17 09:15:00 [INFO] source=api_gateway - GET /api/health 200 OK in 40ms\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Empty Logs (Error Expected)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"logs\": \"\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		},
+		{
+			"name": "Missing Logs Field (Error Expected)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"data\": \"wrong field name\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/triage",
+					"host": ["{{base_url}}"],
+					"path": ["triage"]
+				}
+			}
+		}
+	]
+}

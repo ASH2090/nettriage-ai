@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 10:00:01 [WARNING] source=firewall - Connection attempt on port 22 from 10.0.0.55\n2026-06-17 10:00:02 [WARNING] source=firewall - Connection attempt on port 23 from 10.0.0.55\n2026-06-17 10:00:03 [WARNING] source=firewall - Connection attempt on port 80 from 10.0.0.55\n2026-06-17 10:00:04 [WARNING] source=firewall - Connection attempt on port 443 from 10.0.0.55\n2026-06-17 10:00:05 [WARNING] source=firewall - Connection attempt on port 3306 from 10.0.0.55\n2026-06-17 10:00:06 [WARNING] source=firewall - Connection attempt on port 5432 from 10.0.0.55\n2026-06-17 10:00:07 [WARNING] source=firewall - Connection attempt on port 8080 from 10.0.0.55"
+    }
+order: 3000

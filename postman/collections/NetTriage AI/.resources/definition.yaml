@@ -1,0 +1,16 @@
+$kind: collection
+description: |-
+  API collection for NetTriage AI — a multi-agent log triage pipeline using LangGraph.
+
+  Live endpoint: https://nettriage-ai.onrender.com
+
+  Includes test scenarios for:
+  - Health check
+  - Brute force attack
+  - Port scanning
+  - Data exfiltration
+  - Privilege escalation
+  - DDoS attack
+  - Normal traffic (should NOT flag anomaly)
+variables:
+  base_url: https://nettriage-ai.onrender.com

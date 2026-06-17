@@ -1,0 +1,15 @@
+# Use this workspace to collaborate
+workspace:
+  id: b48d4a1f-29fd-4910-819f-364b6e7e9afe
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
+cloudResources:
+  collections:
+    ..\postman\collections\NetTriage AI: 5355cd51-9285-456a-a4ec-abb2c6cb0e3e
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

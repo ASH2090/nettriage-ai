@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 14:32:10 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\n2026-06-17 14:32:15 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\n2026-06-17 14:32:20 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\n2026-06-17 14:32:25 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100\n2026-06-17 14:32:30 [ERROR] source=auth_service - Failed login attempt for user admin from 192.168.1.100"
+    }
+order: 2000

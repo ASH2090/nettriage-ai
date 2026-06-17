@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 12:00:01 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\n2026-06-17 12:00:02 [ERROR] source=web_server - Connection flood detected from 89.100.55.23 - 503 Service Unavailable\n2026-06-17 12:00:03 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\n2026-06-17 12:00:04 [ERROR] source=web_server - Connection flood detected from 172.16.0.99 - 503 Service Unavailable\n2026-06-17 12:00:05 [ERROR] source=web_server - Connection flood detected from 89.100.55.23 - 503 Service Unavailable\n2026-06-17 12:00:06 [ERROR] source=web_server - Connection flood detected from 45.33.22.11 - 503 Service Unavailable\n2026-06-17 12:00:07 [ERROR] source=web_server - Connection flood detected from 172.16.0.99 - 503 Service Unavailable\n2026-06-17 12:00:10 [CRITICAL] source=load_balancer - Server pool exhausted, all backends unresponsive"
+    }
+order: 6000

@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}/triage"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "logs": "2026-06-17 15:00:00 [WARNING] source=auth_service - User temp_contractor attempted to access /admin/settings\n2026-06-17 15:00:10 [ERROR] source=auth_service - User temp_contractor attempted role change to SUPERADMIN\n2026-06-17 15:00:20 [CRITICAL] source=auth_service - Unauthorized sudo command executed by temp_contractor\n2026-06-17 15:00:25 [CRITICAL] source=auth_service - User temp_contractor modified /etc/passwd"
+    }
+order: 5000
