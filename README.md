@@ -190,6 +190,4 @@ nettriage-ai/
 
 ---
 
-## License
 
-MIT
